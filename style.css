@@ -1,9 +1,19 @@
 body {
   background-color: #222;
-  color: #fff;
+  color: burlywood;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.credits p{
+  background-color: #222;
+  color:#555;
+  font-family: Arial, sans-serif;
+  margin:5px;
+  padding: 5px;
+  text-align: center;
+  font-size: xx-small;
 }
 
 .container {
@@ -47,7 +57,8 @@ li {
 }
 
 #completedList li {
-  text-decoration: line-through;
+  text-decoration: wavy;
+  color:rgba(218, 255, 124, 0.438);
 }
 
 .button-container {
