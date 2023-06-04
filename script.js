@@ -35,6 +35,24 @@ function moveCompletedTasks() {
   }
 }
 
+// Move selected tasks back to task list
+function moveTasksToTaskList() {
+  var taskList = document.getElementById("taskList");
+  var completedList = document.getElementById("completedList");
+  var completedTasks = completedList.getElementsByTagName("li");
+
+  for (var i = completedTasks.length - 1; i >= 0; i--) {
+    var task = completedTasks[i];
+    var checkbox = task.getElementsByTagName("input")[0];
+
+    if (checkbox.checked) {
+      completedList.removeChild(task);
+      task.appendChild(checkbox);
+      taskList.appendChild(task);
+    }
+  }
+}
+
 // Delete selected tasks
 function deleteSelectedTasks() {
   var completedList = document.getElementById("completedList");
@@ -69,3 +87,7 @@ submitButton.addEventListener("click", moveCompletedTasks);
 // Bind click event to the delete button
 var deleteButton = document.getElementById("deleteButton");
 deleteButton.addEventListener("click", deleteSelectedTasks);
+
+// Bind click event to the move button
+var moveButton = document.getElementById("moveButton");
+moveButton.addEventListener("click", moveTasksToTaskList);
