@@ -35,6 +35,21 @@ function moveCompletedTasks() {
   }
 }
 
+// Delete selected tasks
+function deleteSelectedTasks() {
+  var completedList = document.getElementById("completedList");
+  var completedTasks = completedList.getElementsByTagName("li");
+
+  for (var i = completedTasks.length - 1; i >= 0; i--) {
+    var task = completedTasks[i];
+    var checkbox = task.getElementsByTagName("input")[0];
+
+    if (checkbox.checked) {
+      completedList.removeChild(task);
+    }
+  }
+}
+
 // Bind keydown event to the input field
 var taskInput = document.getElementById("taskInput");
 taskInput.addEventListener("keydown", function(event) {
@@ -50,3 +65,7 @@ addButton.addEventListener("click", addTask);
 // Bind click event to the submit button
 var submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", moveCompletedTasks);
+
+// Bind click event to the delete button
+var deleteButton = document.getElementById("deleteButton");
+deleteButton.addEventListener("click", deleteSelectedTasks);
