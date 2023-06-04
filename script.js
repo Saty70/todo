@@ -68,6 +68,16 @@ function deleteSelectedTasks() {
   }
 }
 
+// Select all tasks
+function selectAllTasks() {
+  var taskList = document.getElementById("taskList");
+  var checkboxes = taskList.getElementsByTagName("input");
+
+  for (var i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = true;
+  }
+}
+
 // Bind keydown event to the input field
 var taskInput = document.getElementById("taskInput");
 taskInput.addEventListener("keydown", function(event) {
@@ -91,3 +101,8 @@ deleteButton.addEventListener("click", deleteSelectedTasks);
 // Bind click event to the move button
 var moveButton = document.getElementById("moveButton");
 moveButton.addEventListener("click", moveTasksToTaskList);
+
+// Bind click event to the Select All button
+var selectAllButton = document.getElementById("selectAllButton");
+selectAllButton.addEventListener("click", selectAllTasks);
+  
