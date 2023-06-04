@@ -105,4 +105,3 @@ moveButton.addEventListener("click", moveTasksToTaskList);
 // Bind click event to the Select All button
 var selectAllButton = document.getElementById("selectAllButton");
 selectAllButton.addEventListener("click", selectAllTasks);
-  
