@@ -1,10 +1,6 @@
-.done {
-  text-decoration: wavy;
-  color: gray;
-}
 body {
   background-color: #222;
-  color:bisque;
+  color: #fff;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -51,8 +47,7 @@ li {
 }
 
 #completedList li {
-  text-decoration-style: wavy;
-  color:rgba(218, 255, 124, 0.438)
+  text-decoration: line-through;
 }
 
 .button-container {
