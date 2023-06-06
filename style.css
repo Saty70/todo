@@ -20,7 +20,7 @@ body {
 .credits p:hover{
   font-size: larger;
 }
-
+/*
 .ig{
   position: absolute;
   bottom: 15px;
@@ -38,13 +38,13 @@ body {
 }
 
 .ig a {
-  color: #ffffffc6; /* Set the link color */
+  color: #ffffffc6; //Set the link color 
 }
 
 .ig a:hover {
-  color: #e84393; /* Set the link color on hover */
+  color: #52bdff; // Set the link color on hover 
 }
-
+*/
 .container {
   max-width: 600px;
   margin: 0 auto;
