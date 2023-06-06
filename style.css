@@ -1,20 +1,48 @@
 body {
   background-color: #222;
-  color: burlywood;
+  color: #fff;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-
 .credits p{
+  width: fit-content;
   background-color: #222;
   color:#555;
   font-family: Arial, sans-serif;
-  margin:5px;
+  margin:auto;
   padding: 5px;
-  text-align: center;
+  text-align: right;
   font-size: xx-small;
+}
+
+.credits p:hover{
+  font-size: larger;
+}
+
+.ig{
+  position: absolute;
+  bottom: 15px;
+  left:97%;
+  background-color:#222 ;
+}
+
+.ig i{
+  font-weight: 600;
+  font-size:xx-large;
+}
+
+.ig i:hover{
+  font-size: 5vh;
+}
+
+.ig a {
+  color: #ffffffc6; /* Set the link color */
+}
+
+.ig a:hover {
+  color: #e84393; /* Set the link color on hover */
 }
 
 .container {
@@ -24,11 +52,28 @@ body {
   box-sizing:content-box;
 }
 
+.container h1{
+  text-align: center;
+  font-weight: 900;
+  font-size:7vh;
+  color:darkcyan;
+}
+
+.container h2{
+  text-align: justify;
+  color:#fff
+}
+
+.container h2:hover{
+  color: #ffffffc6;
+}
+
 h1, h2 {
   color: #fff;
 }
 
 input[type="text"], button {
+  font-weight: 1000;
   background-color: #333;
   color: #fff;
   border: none;
@@ -37,6 +82,13 @@ input[type="text"], button {
   border-radius: 5px;
   width:100%;
   box-sizing:border-box;
+  transition: background-color 0.3s;
+}
+
+input[type="text"]:hover{
+  font-weight: 1000;
+  color:#000;
+  background-color: #fff
 }
 
 .Inp{
@@ -67,6 +119,13 @@ input[type="text"], button {
 
 button {
   cursor:pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover{
+  font-weight: bolder;
+  color: rgb(28, 28, 28);
+  background-color: rgb(133, 128, 128);
 }
 
 ul {
@@ -94,6 +153,8 @@ li {
   gap: 10px;
   margin-top: 10px;
 }
+
+
 
 
 @media screen and (max-width: 600px) {
