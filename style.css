@@ -6,6 +6,7 @@ body {
   padding: 0;
 }
 
+
 .credits p{
   background-color: #222;
   color:#555;
@@ -20,7 +21,7 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  box-sizing: border-box;
+  box-sizing:content-box;
 }
 
 h1, h2 {
@@ -34,12 +35,38 @@ input[type="text"], button {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  width: 100%;
-  box-sizing: border-box;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.Inp{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 10px;
+
+}
+
+.text{
+  width:fit-content;
+  display: flex;
+  flex-direction: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+.add{
+  max-width: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 10px;
+
 }
 
 button {
-  cursor: pointer;
+  cursor:pointer;
 }
 
 ul {
@@ -63,18 +90,11 @@ li {
 
 .button-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content:space-around;
   gap: 10px;
   margin-top: 10px;
 }
 
-#selectAllButton {
-  background-color: #555;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-}
 
 @media screen and (max-width: 600px) {
   .container {
