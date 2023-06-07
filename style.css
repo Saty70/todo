@@ -88,7 +88,7 @@ input[type="text"], button {
 input[type="text"]:hover{
   font-weight: 1000;
   color:#000;
-  background-color: #fff
+  background-color: #fff;
 }
 
 .Inp{
@@ -118,6 +118,7 @@ input[type="text"]:hover{
 }
 
 button {
+  font-weight: bolder;
   cursor:pointer;
   transition: background-color 0.3s;
 }
@@ -149,6 +150,8 @@ li {
 
 .button-container {
   display: flex;
+  min-width: fit-content;
+  flex-direction: row;
   justify-content:space-around;
   gap: 10px;
   margin-top: 10px;
@@ -157,7 +160,7 @@ li {
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
   .container {
     padding: 10px;
   }
@@ -167,7 +170,7 @@ li {
   }
   
   .button-container {
-    flex-direction: column;
+    flex-direction: column;/
     align-items: flex-end;
     margin-top: 5px;
   }
