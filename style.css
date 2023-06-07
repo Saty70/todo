@@ -160,7 +160,7 @@ li {
 
 
 
-@media screen and (max-width: 40px) {
+@media screen and (max-width: 780px) {
   .container {
     padding: 10px;
   }
