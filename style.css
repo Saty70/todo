@@ -170,7 +170,7 @@ li {
   }
   
   .button-container {
-    flex-direction: column;/
+    flex-direction: column;
     align-items: flex-end;
     margin-top: 5px;
   }
