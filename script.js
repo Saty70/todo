@@ -17,25 +17,25 @@ function addTask(event) {
   }
 }
 
-// Move completed tasks to completed list
+// Move completed tasks to completed list without inverting order
 function moveCompletedTasks() {
   var taskList = document.getElementById("taskList");
   var completedList = document.getElementById("completedList");
-
   var tasks = taskList.getElementsByTagName("li");
-  for (var i = 0; i < tasks.length; i++) {
+
+  for (var i = tasks.length - 1; i >= 0; i--) {
     var task = tasks[i];
-    var checkbox = task.getElementsByTagName("input")[0];
+    var checkbox = task.querySelector("input[type='checkbox']");
 
     if (checkbox.checked) {
       taskList.removeChild(task);
       completedList.appendChild(task);
-      i--; // Decrement i as the length of tasks has reduced
     }
   }
+  resetCheckboxes(taskList);
 }
 
-// Move selected tasks back to task list
+// Move selected tasks back to task list without inverting order
 function moveTasksToTaskList() {
   var taskList = document.getElementById("taskList");
   var completedList = document.getElementById("completedList");
@@ -43,14 +43,14 @@ function moveTasksToTaskList() {
 
   for (var i = completedTasks.length - 1; i >= 0; i--) {
     var task = completedTasks[i];
-    var checkbox = task.getElementsByTagName("input")[0];
+    var checkbox = task.querySelector("input[type='checkbox']");
 
     if (checkbox.checked) {
       completedList.removeChild(task);
-      task.appendChild(checkbox);
       taskList.appendChild(task);
     }
   }
+  resetCheckboxes(completedList);
 }
 
 // Delete selected tasks
@@ -60,7 +60,7 @@ function deleteSelectedTasks() {
 
   for (var i = completedTasks.length - 1; i >= 0; i--) {
     var task = completedTasks[i];
-    var checkbox = task.getElementsByTagName("input")[0];
+    var checkbox = task.querySelector("input[type='checkbox']");
 
     if (checkbox.checked) {
       completedList.removeChild(task);
@@ -73,8 +73,16 @@ function selectAllTasks() {
   var taskList = document.getElementById("taskList");
   var checkboxes = taskList.getElementsByTagName("input");
 
-  for (var i = 0; i < checkboxes.length; i++) {
-    checkboxes[i].checked = true;
+  for (var checkbox of checkboxes) {
+    checkbox.checked = true;
+  }
+}
+
+function resetCheckboxes(container) {
+  var checkboxes = container.getElementsByTagName("input");
+
+  for (var checkbox of checkboxes) {
+    checkbox.checked = false;
   }
 }
 
