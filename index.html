@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="favicon1.ico" type="image/x-icon">
@@ -9,41 +10,43 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+
 <body>
   <div class="container">
-    <br>
-    <br>
-    <h1>To-Do List</h1>
-    <br>
-    <br>
-  
-    <div class="Inp"> 
-      <input class="text" type="text" id="taskInput" placeholder="Add a new task">
-      <button class="add" id="addButton">Add</button>
-    </div>
+    <div class="glass">
+      <h1>To-Do List</h1>
+      <br>
+      <br>
 
-  
-    <h2>Tasks</h2>
-    <ul id="taskList">
-    </ul>
+      <div class="Inp">
+        <input class="text" type="text" id="taskInput" placeholder="Add a new task">
+        <button class="add" id="addButton">Add</button>
+      </div>
 
-    <div class="button-container">
-      <button id="submitButton">Submit Completed Tasks</button>
-      <button id="selectAllButton">Select All</button>
+
+      <h2>Tasks</h2>
+      <ul id="taskList">
+      </ul>
+
+      <div class="button-container">
+        <button id="submitButton">Submit Completed Tasks</button>
+        <button id="selectAllButton">Select All</button>
+      </div>
+
+      <h2>Completed Tasks</h2>
+      <ul id="completedList">
+      </ul>
+
+      <div class="button-container">
+        <button id="deleteButton">Delete Completed Tasks</button>
+        <button id="moveButton">Move to Task List</button>
+      </div>
+
     </div>
-  
-    <h2>Completed Tasks</h2>
-    <ul id="completedList">
-    </ul>
-  
-    <div class="button-container">
-      <button id="deleteButton">Delete Completed Tasks</button>
-      <button id="moveButton">Move to Task List</button>
-    </div>
-    
   </div>
+
   <div class="credits">
-    <p>-Satyam</p>  
+    <p>-Satyam</p>
   </div>
   <!--<div class="ig">
     <a href="style.css">
@@ -53,4 +56,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
