@@ -113,3 +113,148 @@ moveButton.addEventListener("click", moveTasksToTaskList);
 // Bind click event to the Select All button
 var selectAllButton = document.getElementById("selectAllButton");
 selectAllButton.addEventListener("click", selectAllTasks);
+
+
+// Load tasks from localStorage on page load
+function loadTasks() {
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+  // Populate taskList with saved tasks
+  taskList.innerHTML = '';
+  tasks.forEach(task => {
+    const li = document.createElement('li');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    const taskText = document.createTextNode(task);
+
+    li.appendChild(checkbox);
+    li.appendChild(taskText);
+    taskList.appendChild(li);
+  });
+}
+
+// Save tasks to localStorage
+function saveTasks(tasks) {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// ... (other functions remain the same)
+
+// Add task when the Add button is clicked
+addButton.addEventListener('click', function(event) {
+  addTask(event);
+  saveTasks(getTaskList());
+});
+
+// Move tasks to completed list when the submit button is clicked
+submitButton.addEventListener('click', function() {
+  moveCompletedTasks();
+  saveTasks(getTaskList());
+});
+
+// Move tasks back to task list when the move button is clicked
+moveButton.addEventListener('click', function() {
+  moveTasksToTaskList();
+  saveTasks(getTaskList());
+});
+
+// Delete selected tasks when the delete button is clicked
+deleteButton.addEventListener('click', function() {
+  deleteSelectedTasks();
+  saveTasks(getTaskList());
+});
+
+// Select all tasks when the Select All button is clicked
+selectAllButton.addEventListener('click', function() {
+  selectAllTasks();
+});
+
+// Bind keydown event to the input field
+taskInput.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    addTask(event);
+    saveTasks(getTaskList());
+  }
+});
+
+// Load tasks when the page loads
+window.addEventListener('load', loadTasks);
+
+// Get the list of tasks
+function getTaskList() {
+  const tasks = [];
+  const taskElements = taskList.getElementsByTagName('li');
+
+  for (const taskElement of taskElements) {
+    const taskText = taskElement.textContent.trim();
+    tasks.push(taskText);
+  }
+
+  return tasks;
+}
+
+
+// Load completed tasks from localStorage on page load
+function loadCompletedTasks() {
+  const completedTasks = JSON.parse(localStorage.getItem('completedTasks')) || [];
+
+  // Populate completedList with saved completed tasks
+  completedList.innerHTML = '';
+  completedTasks.forEach(task => {
+    const li = document.createElement('li');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = true; // Completed tasks are checked by default
+    const taskText = document.createTextNode(task);
+
+    li.appendChild(checkbox);
+    li.appendChild(taskText);
+    completedList.appendChild(li);
+  });
+}
+
+// Save completed tasks to localStorage
+function saveCompletedTasks(completedTasks) {
+  localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
+}
+
+// ... (other functions remain the same)
+
+// Move completed tasks to completed list when the submit button is clicked
+submitButton.addEventListener('click', function() {
+  moveCompletedTasks();
+  saveTasks(getTaskList());
+  saveCompletedTasks(getCompletedTaskList()); // Save completed tasks
+});
+
+// Move tasks back to task list when the move button is clicked
+moveButton.addEventListener('click', function() {
+  moveTasksToTaskList();
+  saveTasks(getTaskList());
+  saveCompletedTasks(getCompletedTaskList()); // Save completed tasks
+});
+
+// Delete selected tasks when the delete button is clicked
+deleteButton.addEventListener('click', function() {
+  deleteSelectedTasks();
+  saveCompletedTasks(getCompletedTaskList()); // Save completed tasks
+});
+
+// Load completed tasks when the page loads
+window.addEventListener('load', function() {
+  loadTasks();
+  loadCompletedTasks(); // Load completed tasks
+});
+
+// Get the list of completed tasks
+function getCompletedTaskList() {
+  const completedTasks = [];
+  const completedTaskElements = completedList.getElementsByTagName('li');
+
+  for (const taskElement of completedTaskElements) {
+    const taskText = taskElement.textContent.trim();
+    completedTasks.push(taskText);
+  }
+
+  return completedTasks;
+}
